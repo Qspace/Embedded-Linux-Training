@@ -1,0 +1,30 @@
+#1 Bai 1
+- Gioi thieu ve Embedded system, cac ung dung, cac nen tang nhung pho bien nhu RTOS, linux embedded, android..., co hoi viec lam
+- OS la gi, Unix va Linux, realtime os la gi, Linux co phai la realime OS?
+- cac nen tang kien truc co the chay duoc Linux, cau hinh toi thieu
+- MCU la gi, MPU la gi, MMU, FPU ...
+- Cac phuong phap cai dat linux: 
++ Cai dat song song win
++ Cai may ao
+
+#2 Bai 2
+-Lam quen voi Linux, ca lenh co ban
+-Cau truc file, phan cap permission
+-Bash script co ban
+-Process va program
+-GCC va make file
+-Su dung trinh soan thao vim
+
+
+#3 Bai 3
+-C Layout memory
+-Thu vien tinh va thu vien dong
+-Lap trinh file
+-Virtual memory
+
+# Bai 4
+-Buil Linux system cho Rasp
+-Tim hieu qua trinh boot linux
+-Cac thanh phan cua linux
+-Kernel, driver va devicetree
+
