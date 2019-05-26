@@ -24,7 +24,7 @@ static int bbbuart_config(int fd)
 	UART_TypeDef.c_lflag &= ~(ECHO | ECHONL | ICANON | IEXTEN | ISIG);
 	UART_TypeDef.c_cflag &= ~(CSIZE | PARENB);
 	UART_TypeDef.c_cflag |= CS8;
-	UART_TypeDef.c_cc[VMIN]  = 1;
+	UART_TypeDef.c_cc[VMIN]  = 0;
 	UART_TypeDef.c_cc[VTIME] = 0;
 
 	if (cfsetispeed (&UART_TypeDef,B9600) < 0 || cfsetospeed (&UART_TypeDef, B9600) < 0)
@@ -47,13 +47,14 @@ int bbbuart_init(int uartPort)
 {
 	switch (uartPort) {
 	case 1:
-		s_fd_uart1 = open(g_uart1,O_RDWR | O_NOCTTY | O_NDELAY);
+		s_fd_uart1 = open(g_uart1,O_RDWR | O_NOCTTY | O_NONBLOCK);
 		if(s_fd_uart1 == -1)
 		{
 			perror("Uart: Failed to open the file.\n");
 			return -1;
 
 		}
+		fcntl(s_fd_uart1, F_SETFL, 0);
 		bbbuart_config(s_fd_uart1);
 		break;
 	default:
@@ -106,4 +107,8 @@ int bbbuart_read(char uartPort, char* buf, unsigned char numBytes)
 		return -1;
 		break;
 	}
+}
+int bbbuart_shutdown(void)
+{
+	close(s_fd_uart1);
 }

@@ -11,5 +11,5 @@
 int bbbuart_init(int uartPort);
 int bbbuart_write(char uartPort, char* buf,unsigned char numBytes);
 int bbbuart_read(char uartPort, char* buf, unsigned char numBytes);
-
+int bbbuart_shutdown(void);
 #endif /* BBBUART_H_ */
