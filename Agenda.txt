@@ -1,8 +1,8 @@
 #1 Bai 1
 - Gioi thieu ve Embedded system, cac ung dung, cac nen tang nhung pho bien nhu RTOS, linux embedded, android..., co hoi viec lam
+- MCU la gi, SOC la gi, MMU, FPU ...
 - OS la gi, Unix va Linux, realtime os la gi, Linux co phai la realime OS?
 - cac nen tang kien truc co the chay duoc Linux, cau hinh toi thieu
-- MCU la gi, MPU la gi, MMU, FPU ...
 - Cac phuong phap cai dat linux: 
 + Cai dat song song win
 + Cai may ao
@@ -23,7 +23,7 @@
 -Virtual memory
 
 # Bai 4
--Buil Linux system cho Rasp
+-Flash Linux system image cho Rasp
 -Tim hieu qua trinh boot linux
 -Cac thanh phan cua linux
 -Kernel, driver va devicetree
