@@ -28,3 +28,9 @@
 -Cac thanh phan cua linux
 -Kernel, driver va devicetree
 
+#Bai 5
+ -Giao tiep device dreive 
+ -WringPI
+
+#Bai 6 
+-Lap trinh multithread, signal, condition 

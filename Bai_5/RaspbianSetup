@@ -1,0 +1,37 @@
+1. Enable wifi:
+raspi-config->network option->wifi->SSID: "ten wifi"
+
+2. Set static ipaddress
+Change file etc/dhcpcd.conf
+interface wlan0
+static ipaddress=...
+
+3. Enable ssh:
+raspi-config->Inteface option->enable ssh
+
+4. Install vim
+sudo apt-get update && sudo apt-get -y install vim
+
+3. Enable uart:
+Change /boot/config.txt
+Add
+enable_uart=1
+
+Change /boot/cmdline.txt
+remove seria0,115200 	
+dtoverlay=pi3-disable-bt
+sudo systemctl disable hciuart
+sudo systemctl stop serial-getty@ttyS0.service
+sudo systemctl disable serial-getty@ttyS0.service
+reboot
+https://hallard.me/enable-serial-port-on-raspberry-pi
+https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/
+https://www.raspberrypi.org/documentation/configuration/uart.md
+
+Test:
+Use cutecom on PC host
+sudo cutecom /dev/ttyUSB0 -b 9600
+
+On raspi echo "aaa" > /dev/ttyAMA0
+
+
