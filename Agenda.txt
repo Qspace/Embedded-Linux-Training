@@ -28,9 +28,15 @@
 -Cac thanh phan cua linux
 -Kernel, driver va devicetree
 
-#Bai 5
- -Giao tiep device dreive 
+#Bai 5(2 buoi) 
+ -Giao tiep device drive 
  -WringPI
 
-#Bai 6 
+#Bai 7 
 -Lap trinh multithread, signal, condition 
+
+#Bai 8(3 buoi)
+-Thiet lap 1 he thong IOT, trong do RPI dong vai tro la web server cap nhat nhiet do phong qua cam bien ADC cap nhat SQL data base va hien thi len web page
+
+#Bai 11 12
+Thingspeak
