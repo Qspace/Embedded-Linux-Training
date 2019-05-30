@@ -19,3 +19,6 @@ $(TARGET): $(OBJECTS)
 
 clean:
 	rm -f *.o $(TARGET)
+install:
+	sudo cp $(TARGET) /usr/lib/cgi-bin
+

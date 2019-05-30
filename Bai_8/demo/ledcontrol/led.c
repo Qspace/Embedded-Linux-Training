@@ -1,6 +1,8 @@
 #include<wiringPi.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void process_led_control(ledNum,value)
+void process_led_control(int ledNum, int value)
 {
     switch(ledNum)
     {   
@@ -17,7 +19,7 @@ void process_led_control(ledNum,value)
         break;
     }
 }
-int main(int arc, char** argv){
+int main(int argc, char** argv){
     printf("This Application controls the USER LED3\n");
 	printf("arg[1] is led num, arg[2] is value on/off \n");
 	wiringPiSetup();
