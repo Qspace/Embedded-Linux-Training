@@ -10,15 +10,15 @@
 #2 Bai 2
 -Lam quen voi Linux, ca lenh co ban
 -Cau truc file, phan cap permission
--Bash script co ban
--Process va program
--GCC va make file
 -Su dung trinh soan thao vim
+-Bash script co ban
 
 
 #3 Bai 3
+-GCC va make file
+-Process va program
 -C Layout memory
--Thu vien tinh va thu vien dong
+-Thu vien tinh va thu vien dong*
 -Lap trinh file
 -Virtual memory
 
