@@ -18,7 +18,7 @@ int connectToServer(){
     	perror("Socket Client: error opening socket.\n");
     	return -1;
     }
-    server = gethostbyname("192.168.7.2");
+    server = gethostbyname("207.137.6.115");
     if (server == NULL) {
         perror("Socket Client: error - no such host.\n");
         return -1;
