@@ -30,7 +30,11 @@ int main (int argc, char *argv[])
 		FieldsArray[i-2]=atof(argv[i]);
 	
 	//send data to channel.
-	SendDataToThingSpeak(argc-2, &FieldsArray[0],argv[1],sizeof(argv[1]));
+	int ret = SendDataToThingSpeak(argc-2, &FieldsArray[0],argv[1],sizeof(argv[1]));
+	if (ret == SEND_OK)
+	{
+		printf("Send data to Thingspeak sucessfully \n");
+	}
 	
 	//All done! If there was no network error, open channel on your favorite browser and check it out!
 }
