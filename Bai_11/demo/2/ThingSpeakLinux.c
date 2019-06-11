@@ -18,10 +18,26 @@ Date:   05/2016
 //defines
 #define URL_THINGSPEAK             "api.thingspeak.com"
 #define PORT_THINGSPEAK            80
-#define BEGIN_OF_HTTP_REQ          "GET /update?api_key="
+#define BEGIN_OF_HTTP_REQ          "POST /update HTTP/1.1\nHost: api.thingspeak.com\nConnection: close\nX-THINGSPEAKAPIKEY: UK86I0RBBLDUF9JY\nContent-Type: application/x-www-form-urlencoded\n"
 #define END_OF_HTTP_REQ            "\r\n\r\n"
 #define MAX_SIZE                   9999
 
+//    ostringstream head, data;
+//    cout << "Starting ThingSpeak Example" << endl;
+//    SocketClient sc("api.thingspeak.com",80);
+//    data << "field1=" << getCPUTemperature() << endl;
+//    sc.connectToServer();
+//    head << "POST /update HTTP/1.1\n"
+//         << "Host: api.thingspeak.com\n"
+//         << "Connection: close\n"
+//         << "X-THINGSPEAKAPIKEY: UK86I0RBBLDUF9JY\n"
+//         << "Content-Type: application/x-www-form-urlencoded\n"
+//         << "Content-Length:" << string(data.str()).length() << "\n\n";
+//    sc.send(string(head.str()));
+//    sc.send(string(data.str()));
+//    string rec = sc.receive(1024);
+//    cout << "[" << rec << "]" << endl;
+//    cout << "End of ThingSpeak Example" << endl;
 //local variables
 
 //local prototypes
@@ -51,12 +67,12 @@ char SendDataToThingSpeak(int FieldNo, float * FieldArray, char * Key, int SizeO
 	
 	//Setting up HTTP Req. string:
 	bzero(&ReqString,sizeof(ReqString));
-	sprintf(ReqString,"%s%s",BeginOfHTTPReq,Key);
+	sprintf(ReqString,"%s",BeginOfHTTPReq);
 	
 	ptReqString = &ReqString[0]+(int)strlen(ReqString);
 	for(i=1; i<= FieldNo; i++)
 	{
-		sprintf(ptReqString,"&field%d=%.2f",i,FieldArray[i-1]);
+		sprintf(ptReqString,"field%d=%.2f",i,FieldArray[i-1]);
 		ptReqString = &ReqString[0]+(int)strlen(ReqString);
 	}
 	
@@ -97,4 +113,23 @@ char SendDataToThingSpeak(int FieldNo, float * FieldArray, char * Key, int SizeO
 	//All done!
 	return SEND_OK;
 }
+	// socketfd = socket(AF_INET, SOCK_STREAM, 0);
+    // if (socketfd < 0){
+    // 	perror("Socket Client: error opening socket.\n");
+    // 	return 1;
+    // }
+    // server = gethostbyname(serverName.data());
+    // if (server == NULL) {
+    //     perror("Socket Client: error - no such host.\n");
+    //     return 1;
+    // }
+    // bzero((char *) &serverAddress, sizeof(serverAddress));
+    // serverAddress.sin_family = AF_INET;
+    // bcopy((char *)server->h_addr,(char *)&serverAddress.sin_addr.s_addr, server->h_length);
+    // serverAddress.sin_port = htons(portNumber);
+
+    // if (connect(socketfd, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0){
+    // 	perror("Socket Client: error connecting to the server.\n");
+    // 	return 1;
+    // }
 		   
