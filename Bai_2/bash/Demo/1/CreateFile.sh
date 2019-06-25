@@ -7,11 +7,19 @@ then
 	echo "Nhap so luong file can tao"
 	read num_file
 	echo $num_file
-	for x in {0..$num_file}
+#	for x in {0..}
+#	do
+#		echo "Tao file $x"
+#		touch hitech$x.txt
+#	done
+	dem=0
+	while [ $dem -lt $num_file ]
 	do
-		echo $x
-		touch hitech$x.txt
+        	echo "While Dem="$dem
+		touch hitech$dem.txt
+        	let "dem=$dem+1"
 	done
+
 else
 	echo "Xoa file"
 	rm -f *.txt

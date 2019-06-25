@@ -1,6 +1,3 @@
-1. Build chuong trinh hello world voi GCC
-vim hello.c
-gcc -Wall -o hello hello.c
-2. Build 1 chuong trinh co nhieu file voi GCC
-3. Simple Make file
-4. File read write
+1. Viet chuong trinh wite vao file dong "hellow world" bang thu vien unix
+2. Viet chuong trinh write vao file 1 con so(dua vao tham so truyen vao) va read lai gia tri do bang thu vien unix.
+

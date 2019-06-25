@@ -1,0 +1,1 @@
+./Changfilename.sh prefix newprefix

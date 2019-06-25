@@ -50,8 +50,6 @@ int main(int argc, char **argv)
                 {
                      fprintf(fp, "%d", i);
                 }
-                
-         
             }
         }
         fclose(fp);
