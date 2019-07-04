@@ -1,0 +1,8 @@
+-GCC, qua trinh buil 1 chuong trinh C, compling và linking
+-Make file
+-Process và program
+-Lap trinh file trong linux
+-Thu vien lien ket tinh/dong
+
+Bai tap:
+Doc ghi file

@@ -1,0 +1,18 @@
+Giao tiep device co ban
+Wring PI
+Uart
+I2C with Nunchuk
+
+Thoi luong du kien: 2 buoi.
+Buoi 1:
+-Wring PI
+	+Cach cai dat va su dung cac command co ban de doc nut nhan va bat tat LED
+	+Viet 1 bash script co ban de doc trang thai nut nhan va bat tat LED
+	+Viet chuong trinh C de doc nut nhan va bat tat LED
+-Uart với termios
+	+Gioi thieu tong quan ve Uart trên RPI, cach su dung ham termios
+	+Viet chuong trinh loop back de test UART
+
+Buoi 2:
+	+Giao tiep I2C voi tay cam nunchuk
+	+Game ran san moi tren host PC su dung tay cam nunchuk
