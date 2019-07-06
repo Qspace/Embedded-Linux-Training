@@ -5,18 +5,19 @@
 
 int main(int argc, char** argv)
 {
-	char buf[8]={1,2,3,4,5,6,7,8};
+	char buf[8]={0};
 	bbbuart_init(1);
 	while(1)
 	{
 		usleep(10000);
-		if(bbbuart_read(1,buf,8))
+		//bbbuart_write(1,buf,8);
+		int nBytes = bbbuart_read(1,buf,8);
+		if(nBytes)
 		{
 			printf("recv uart data:%s\n",buf);
-			bbbuart_write(1,buf,8);
-			bbbuart_shutdown();
-			return 0;
+			bbbuart_write(1,buf,nBytes);
 		}
 	}
+	bbbuart_shutdown();
 	return 0;
 }
