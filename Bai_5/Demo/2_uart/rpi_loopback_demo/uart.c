@@ -23,7 +23,7 @@ static int bbbuart_config(int fd)
 	UART_TypeDef.c_oflag = 0;
 	UART_TypeDef.c_lflag &= ~(ECHO | ECHONL | ICANON | IEXTEN | ISIG);
 	UART_TypeDef.c_cflag &= ~(CSIZE | PARENB);
-	UART_TypeDef.c_cflag |= CS8;
+	UART_TypeDef.c_cflag |= CS8 | CREAD | CLOCAL;
 	UART_TypeDef.c_cc[VMIN]  = 0;
 	UART_TypeDef.c_cc[VTIME] = 0;
 
