@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>injection_30.png</file>
+        <file>like_30.png</file>
+        <file>panda_30.png</file>
+    </qresource>
+</RCC>
