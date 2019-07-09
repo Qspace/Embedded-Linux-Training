@@ -18,12 +18,13 @@
 #define STX 0x02
 #define ETX 0x03
 #define NUNCHUK_DATA_NUM_BYTES 6
-#define X_ZERO 124
-#define X_MIN 24
-#define X_MAX 225
-#define Y_ZERO 133
-#define Y_MIN 24
-#define Y_MAX 225
+//#define X_ZERO 124
+//#define X_MIN 24
+//#define X_MAX 225
+//#define Y_ZERO 133
+//#define Y_MIN 24
+//#define Y_MAX 225
+
 
 typedef enum
 {
@@ -106,14 +107,14 @@ void NunchuckHost::nunchuckhost_decode(unsigned char byteData)
             this->s_stNunchukData.c = (buf[5] >> 1) & 1;
             this->direction = DecodeDirection(this->s_stNunchukData);
             memset(buf,0,NUNCHUK_DATA_NUM_BYTES);
-            //			printf("xAxis: %d\n",this->s_stNunchukData.xaxis);
-            //			printf("yAxis: %d\n",this->s_stNunchukData.yaxis);
-            //			printf("Angle: %0.2lf\n",this->s_stNunchukData.angle);
-            //			printf("xAcc: %d\n",this->s_stNunchukData.xacc);
-            //			printf("yAcc: %d\n",this->s_stNunchukData.yacc);
-            //			printf("zAcc: %d\n",this->s_stNunchukData.zacc);
-            //			printf("z button: %d\n",this->s_stNunchukData.z);
-            //			printf("c button: %d\n",this->s_stNunchukData.c);
+            printf("xAxis: %d\n",this->s_stNunchukData.xaxis);
+            printf("yAxis: %d\n",this->s_stNunchukData.yaxis);
+            printf("Angle: %0.2lf\n",this->s_stNunchukData.angle);
+            printf("xAcc: %d\n",this->s_stNunchukData.xacc);
+            printf("yAcc: %d\n",this->s_stNunchukData.yacc);
+            printf("zAcc: %d\n",this->s_stNunchukData.zacc);
+            printf("z button: %d\n",this->s_stNunchukData.z);
+            printf("c button: %d\n",this->s_stNunchukData.c);
         }
         else
         {

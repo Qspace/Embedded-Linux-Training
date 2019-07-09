@@ -11,12 +11,20 @@
 #define NU_BUTTON_PRESS 0
 #define NU_BUTTON_RELEASE 1
 
-#define X_ZERO 124
-#define X_MIN 24
-#define X_MAX 225
-#define Y_ZERO 133
-#define Y_MIN 24
-#define Y_MAX 225
+//#define X_ZERO 124
+//#define X_MIN 24
+//#define X_MAX 225
+//#define Y_ZERO 133
+//#define Y_MIN 24
+//#define Y_MAX 225
+//#define OFFSET_ZERO 10
+
+#define X_ZERO 0x7f
+#define X_MIN 0x00
+#define X_MAX 0xff
+#define Y_ZERO 0x80
+#define Y_MIN 0x00
+#define Y_MAX 0xff
 #define OFFSET_ZERO 10
 
 typedef struct
