@@ -57,7 +57,7 @@ E_NunchuckDirection NunchuckHost::nunchuckhost_handle(void)
     {
         for(int i =0; i<n;i++)
         {
-            //			printf("buf[%d]: %x\n",i,buf[i]);
+            printf("buf[%d]: %x\n",i,buf[i]);
             this->nunchuckhost_decode(buf[i]);
         }
     }

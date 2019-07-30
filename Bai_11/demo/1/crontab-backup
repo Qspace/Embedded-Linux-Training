@@ -20,4 +20,4 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 # m h  dom mon dow   command
-*/1 *  *   *   *     /usr/bin/ThingSpeakC 23RYIY1AOE4EVTMT 99.1 8 > /dev/null 2>&1
+*/5  *   *   *   *    qspace /usr/local/bin/thingSpeak > /dev/null 2>&1

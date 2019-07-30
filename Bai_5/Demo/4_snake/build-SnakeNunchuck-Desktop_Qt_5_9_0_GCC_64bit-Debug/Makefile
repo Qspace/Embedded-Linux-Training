@@ -197,7 +197,6 @@ DIST          = /opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf \
-		../SnakeNunchuck/.qmake.stash \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -369,7 +368,6 @@ Makefile: ../SnakeNunchuck/SnakeNunchuck.pro /opt/Qt5.9.0/5.9/gcc_64/mkspecs/lin
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -530,7 +528,6 @@ Makefile: ../SnakeNunchuck/SnakeNunchuck.pro /opt/Qt5.9.0/5.9/gcc_64/mkspecs/lin
 /opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -735,6 +732,7 @@ moc_mysnake.cpp: /opt/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QDesktopWidget \
+		../SnakeNunchuck/nuchukhost.h \
 		../SnakeNunchuck/mysnake.h \
 		moc_predefs.h \
 		/opt/Qt5.9.0/5.9/gcc_64/bin/moc
@@ -875,6 +873,7 @@ main.o: ../SnakeNunchuck/main.cpp ../SnakeNunchuck/mysnake.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QDesktopWidget \
+		../SnakeNunchuck/nuchukhost.h \
 		../SnakeNunchuck/uarthost.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../SnakeNunchuck/main.cpp
 
@@ -998,14 +997,76 @@ mysnake.o: ../SnakeNunchuck/mysnake.cpp ../SnakeNunchuck/mysnake.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QDesktopWidget
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QDesktopWidget \
+		../SnakeNunchuck/nuchukhost.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mysnake.o ../SnakeNunchuck/mysnake.cpp
 
 nunchukhost.o: ../SnakeNunchuck/nunchukhost.cpp ../SnakeNunchuck/nuchukhost.h \
 		../SnakeNunchuck/uarthost.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nunchukhost.o ../SnakeNunchuck/nunchukhost.cpp
 
-uarthost.o: ../SnakeNunchuck/uarthost.cpp ../SnakeNunchuck/uarthost.h
+uarthost.o: ../SnakeNunchuck/uarthost.cpp ../SnakeNunchuck/uarthost.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o uarthost.o ../SnakeNunchuck/uarthost.cpp
 
 qrc_png.o: qrc_png.cpp 
