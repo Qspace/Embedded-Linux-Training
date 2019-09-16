@@ -1,5 +1,10 @@
 #include "lib.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 int main()
 {
-    return 0;
+	printf("Process vs Program\n");
+	while(1);
+	return 0;
 }

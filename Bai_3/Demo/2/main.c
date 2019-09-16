@@ -1,9 +1,11 @@
 #include "lib.h"
-#define TEST 
+//#define TEST 
 int main()
 {
     #ifdef TEST
 	printf("test\n");
-    #endif    
+    #else
+    	printf("release\n");
+    #endif	
     return 0;
 }
