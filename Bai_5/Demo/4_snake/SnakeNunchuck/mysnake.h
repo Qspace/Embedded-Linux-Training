@@ -11,6 +11,7 @@
 #include <QKeyEvent>
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QSerialPort>
 #include "nuchukhost.h"
 
 class MySnake : public QWidget
@@ -30,6 +31,8 @@ private:
     QImage apple;
 
     QTimer *timer;
+
+    QSerialPort *m_serial = nullptr;
 
     int WINDOW_WIDTH;
     int DOT_SIZE;
@@ -74,6 +77,9 @@ private:
     void handleNunchukEvent();
     void setDirection(E_NunchuckDirection direction);
 
+private slots:
+    void readData();
+    void handleError(QSerialPort::SerialPortError error);
 private Q_SLOTS:
     void myTimer();
 

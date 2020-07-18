@@ -52,11 +52,11 @@ class NunchuckHost
 {
 public:
     NunchuckHost();
-    E_NunchuckDirection nunchuckhost_handle(void);
+    E_NunchuckDirection nunchuckhost_handle(const char* buf, unsigned short len);
     NUNCHUK_DATA_T nunchukhost_getData(void);
     static NunchuckHost* S_getInstance()
     {
-        if (S_Instance == NULL)
+        if (S_Instance == nullptr)
         {
             S_Instance = new NunchuckHost();
         }

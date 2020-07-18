@@ -1,0 +1,8 @@
+sudo apt-get update
+sudo apt-get install apache2
+
+sudo apt-get install apache2 apache2-utils php7.1 libapache2-mod-php7.1
+sudo apt-get install curl php-curl php-json
+
+sudo a2enmod php7.1
+sudo service apache2 restart

@@ -49,13 +49,13 @@ NunchuckHost::NunchuckHost()
     this->direction = CENTER;
 }
 
-E_NunchuckDirection NunchuckHost::nunchuckhost_handle(void)
+E_NunchuckDirection NunchuckHost::nunchuckhost_handle(const char* buf, unsigned short len)
 {
-    unsigned char buf[MAX_BUF_READ]={0};
-    int n = UartHost::S_getInstance("/dev/ttyUSB0")->uarthost_read(buf,MAX_BUF_READ);
-    if (n > 0)
+//    unsigned char buf[MAX_BUF_READ]={0};
+//    int n = UartHost::S_getInstance("/dev/ttyUSB0")->uarthost_read(buf,MAX_BUF_READ);
+    if (len > 0)
     {
-        for(int i =0; i<n;i++)
+        for(int i =0; i<len;i++)
         {
             printf("buf[%d]: %x\n",i,buf[i]);
             this->nunchuckhost_decode(buf[i]);

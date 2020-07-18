@@ -1,8 +1,9 @@
 #include "mysnake.h"
 #include "nuchukhost.h"
+#include <QDebug>
 
 MySnake::MySnake(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),m_serial(new QSerialPort(this))
 {
     setWindowOpacity(0.75);
     setStyleSheet("background-color:black;");
@@ -26,6 +27,24 @@ MySnake::MySnake(QWidget *parent) :
     ALL_DOTS = ( WINDOW_WIDTH * WINDOW_HEIGHT ) / ( DOT_SIZE * DOT_SIZE );
 
     MAX_LEVEL   = ALL_DOTS    / 10;
+
+    m_serial->setPortName("COM34");
+    m_serial->setBaudRate(9600);
+    m_serial->setDataBits(QSerialPort::Data8);
+    m_serial->setParity(QSerialPort::NoParity);
+    m_serial->setStopBits(QSerialPort::OneStop);
+    m_serial->setFlowControl(QSerialPort::NoFlowControl);
+    if (m_serial->open(QIODevice::ReadWrite))
+    {
+
+    }
+    else
+    {
+        qDebug()<<"Failed to open Qserial port";
+    }
+
+    connect(m_serial, &QSerialPort::errorOccurred, this, &MySnake::handleError);
+    connect(m_serial, &QSerialPort::readyRead, this, &MySnake::readData);
 
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(myTimer()));
@@ -81,7 +100,7 @@ void MySnake::myTimer()
 {
     if ( inGame )
     {
-        handleNunchukEvent();
+//        handleNunchukEvent();
         move();
         checkApple();
         checkCollision();
@@ -319,8 +338,8 @@ void MySnake::gameOver(QString s)
 
 void MySnake::handleNunchukEvent()
 {
-    E_NunchuckDirection direction = NunchuckHost::S_getInstance()->nunchuckhost_handle();
-    setDirection(direction);
+//    E_NunchuckDirection direction = NunchuckHost::S_getInstance()->nunchuckhost_handle();
+//    setDirection(direction);
 }
 
 void MySnake::setDirection(E_NunchuckDirection direction)
@@ -340,6 +359,24 @@ void MySnake::setDirection(E_NunchuckDirection direction)
         break;
     default:
         break;
+    }
+}
+
+//! [7]
+void MySnake::readData()
+{
+    const QByteArray data = m_serial->readAll();
+    qDebug()<<"Nunchuck data"<<data;
+    E_NunchuckDirection direction = NunchuckHost::S_getInstance()->nunchuckhost_handle(data.data(),data.size());
+    setDirection(direction);
+//    handleNunchukEvent();
+}
+//! [7]
+
+//! [8]
+void MySnake::handleError(QSerialPort::SerialPortError error)
+{
+    if (error == QSerialPort::ResourceError) {
     }
 }
 
